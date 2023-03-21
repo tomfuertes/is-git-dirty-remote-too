@@ -36,7 +36,7 @@
     "is-git",
     "exists"
   ],
-  "author": "Jan Peer Stöcklmair / Edits by Tom Fuertes",
+  "author": "Tom Fuertes (Forked from Jan Peer Stöcklmair)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tomfuertes/is-git-dirty-remote-too/issues"
