@@ -3,15 +3,22 @@ import isGit from 'is-git-repository';
 
 const processCwd = process.cwd();
 
+const checkLength = ({
+  stdout,
+}: {
+  stdout: string;
+}): boolean => stdout.length > 0;
+
 const isGitDirty = (cwd = processCwd): boolean | null => {
   if (!isGit(cwd)) {
     return null;
   }
 
   try {
-    const { stdout } = execa.commandSync('git status --short', { cwd });
-
-    return stdout.length > 0;
+    execa.commandSync('git fetch --all', { cwd });
+    const isLocalDirty = checkLength(execa.commandSync('git status --short', { cwd }));
+    const isRemotePulled = checkLength(execa.commandSync('git rev-list --count --left-only @\'{u}\'...HEAD', { cwd }));
+    return isLocalDirty || isRemotePulled;
   } catch (e) {
     return null;
   }
