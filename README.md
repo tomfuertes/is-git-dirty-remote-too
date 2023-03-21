@@ -1,4 +1,4 @@
-# is-git-dirty-remote-too
+# is-git-dirty-remote-too EDIT DOES NOT WORK
 
 Checks synchronously if the git repository is clean and there are no unpulled changes on remote. This assumes that no files are added, untracked or modified.
 
