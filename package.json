@@ -1,6 +1,6 @@
 {
   "name": "is-git-dirty-remote-too",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Check if a repository has untracked or added files",
   "main": "./dest/index.js",
   "types": "./dest/index.d.ts",
