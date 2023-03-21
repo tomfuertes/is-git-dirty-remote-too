@@ -1,0 +1,10 @@
+#! /usr/bin/env node
+import isGitDirtyRemoteToo from '../dest/index';
+
+try {
+  const result = isGitDirtyRemoteToo();
+  process.exit(result ? 1 : 0);
+} catch (error) {
+  // console.error(error);
+  process.exit(1);
+}
