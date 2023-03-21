@@ -9,6 +9,9 @@
     "build": "rimraf dest && tsc && babel dest -d dest",
     "prepublishOnly": "npm run build"
   },
+  "bin": {
+    "is-git-dirty-remote-too": "bin/is-git-dirty-remote-too"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
