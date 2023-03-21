@@ -1,10 +1,6 @@
 # is-git-dirty
 
-[![Build Status](https://travis-ci.com/JPeer264/node-is-git-dirty.svg?branch=main)](https://travis-ci.com/JPeer264/node-is-git-dirty)
-[![Build status](https://ci.appveyor.com/api/projects/status/ehj6762gbj1e2qyc?svg=true)](https://ci.appveyor.com/project/JPeer264/node-is-git-dirty)
-[![Coverage Status](https://coveralls.io/repos/github/JPeer264/node-is-git-dirty/badge.svg?branch=main)](https://coveralls.io/github/JPeer264/node-is-git-dirty?branch=main)
-
-Checks synchronously if the git repository is clean. This assumes that no files are added, untracked or modified.
+Checks synchronously if the git repository is clean and there are no unpulled changes on remote. This assumes that no files are added, untracked or modified.
 
 ## Installation
 
@@ -24,12 +20,19 @@ Returns:
 - `false`: No files are added, untracked or modified. Git is clean
 
 ```js
-import isGitDirty from 'is-git-dirty';
+import isGitDirtyRemoteToo from 'is-git-dirty-remote-too';
 
-isGitDirty(); // true or false of process.cwd()
-isGitDirty('any/git/repo'); // true or false
+isGitDirtyRemoteToo(); // true or false of process.cwd()
+isGitDirtyRemoteToo('any/git/repo'); // true or false
+```
+
+```js
+"scripts": {
+  "pre-deploy": "is-git-dirty-remote-too",
+}
+
 ```
 
 ## LICENSE
 
-MIT © [Jan Peer Stöcklmair](https://www.jpeer.at)
+MIT
